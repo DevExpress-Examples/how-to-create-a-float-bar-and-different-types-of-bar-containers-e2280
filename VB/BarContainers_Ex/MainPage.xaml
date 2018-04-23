@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="BarContainers_Ex.MainPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid>
+        <dxb:BarManager Margin="12" Name="barManager1" CreateStandardLayout="False">
+            <dxb:BarManager.Items>
+                <dxb:BarCheckItem x:Name="btnBold" Glyph="Images/bold16x16.png" />
+                <dxb:BarCheckItem x:Name="btnItalic" Glyph="Images/italic16x16.png" />
+                <dxb:BarCheckItem x:Name="btnUnderline" Glyph="Images/underLine16x16.png" />
+                <dxb:BarButtonItem x:Name="btnFont" Glyph="Images/font16x16.png" />
+                <dxb:BarCheckItem x:Name="btnCenter" Glyph="Images/center16x16.png" />
+                <dxb:BarCheckItem x:Name="btnJustify" Glyph="Images/justify16x16.png" />
+                <dxb:BarCheckItem x:Name="btnLeft" Glyph="Images/left16x16.png" />
+                <dxb:BarCheckItem x:Name="btnRight" Glyph="Images/right16x16.png" />
+            </dxb:BarManager.Items>
+            <!--region #1-->
+            <dxb:BarManager.Bars>
+                <dxb:Bar x:Name="barFormat" Caption="Format">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="btnBold" />
+                        <dxb:BarCheckItemLink BarItemName="btnItalic" />
+                        <dxb:BarCheckItemLink BarItemName="btnUnderline" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+                <!--Create a floating bar-->
+                <dxb:Bar x:Name="barFont" Caption="Font">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Floating" FloatBarOffset="200,200" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="btnFont" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+                <!--Create a bar to be displayed in the standalone container-->
+                <dxb:Bar x:Name="barAlignment" Caption="Alignment">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerName="StandaloneContainer" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="btnLeft" />
+                        <dxb:BarCheckItemLink BarItemName="btnCenter" />
+                        <dxb:BarCheckItemLink BarItemName="btnRight" />
+                        <dxb:BarCheckItemLink BarItemName="btnJustify" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    
+                </Grid.RowDefinitions>
+                <!--Create containers to display bars-->
+                <dxb:BarContainerControl x:Name="TopBarContainer" ContainerType="Top" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Top" />
+                <dxb:BarContainerControl x:Name="RightBarContainer" ContainerType="Right" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" />
+                <dxb:BarContainerControl x:Name="StandaloneContainer" ContainerType="None" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Top" />
+                <dxe:TextEdit Margin="8" Name="textBox" EditValue="Sample text" Grid.Column="1" Grid.Row="2" />
+            </Grid>
+            <!--endregion #1-->
+        </dxb:BarManager>
+    </Grid>
+
+</UserControl>

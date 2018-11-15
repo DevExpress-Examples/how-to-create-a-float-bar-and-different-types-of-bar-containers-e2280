@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainPage.xaml](./CS/BarContainers_Ex/MainPage.xaml) (VB: [MainPage.xaml.vb](./VB/BarContainers_Ex/MainPage.xaml.vb))
+* [MainPage.xaml.cs](./CS/BarContainers_Ex/MainPage.xaml.cs) (VB: [MainPage.xaml.vb](./VB/BarContainers_Ex/MainPage.xaml.vb))
+<!-- default file list end -->
 # How to create a float bar and different types of bar containers
 
 
